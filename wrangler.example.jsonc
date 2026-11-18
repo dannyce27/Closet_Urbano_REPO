@@ -1,0 +1,9 @@
+{
+  "name":"closet-urbano",
+  "main":"dist/server/index.js",
+  "compatibility_date":"2026-06-01",
+  "d1_databases":[{"binding":"DB","database_name":"closet-urbano","database_id":"REEMPLAZAR_CON_ID_D1","migrations_dir":"migrations"}],
+  "r2_buckets":[{"binding":"BUCKET","bucket_name":"closet-urbano-comprobantes"}],
+  "triggers":{"crons":["* * * * *"]},
+  "vars":{"LIVE_CATALOG":"false"}
+}

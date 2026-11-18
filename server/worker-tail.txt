@@ -1,0 +1,8 @@
+export default {
+ async fetch(req,env){const p=new URL(req.url).pathname;if(p.startsWith('/api/'))return api(req,env);
+ const k=p==='/'?'/index.html':p==='/admin'?'/admin.html':p;
+ if(!Object.hasOwn(files,k))return new Response('No encontrado',{status:404});
+ const mime={js:'text/javascript',css:'text/css',html:'text/html; charset=utf-8',webp:'image/webp',png:'image/png',jpg:'image/jpeg',jpeg:'image/jpeg'};
+ return new Response(Uint8Array.from(atob(files[k]),c=>c.charCodeAt(0)),{headers:{'Content-Type':mime[k.split('.').pop()]||'application/octet-stream','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer','Cache-Control':k.startsWith('/img/')?'public,max-age=3600':'no-cache'}})},
+ async scheduled(event,env,ctx){ctx.waitUntil(cleanup(env.DB))}
+};
