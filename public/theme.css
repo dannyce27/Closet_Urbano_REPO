@@ -1,0 +1,111 @@
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 8px;
+  min-height: 36px;
+  padding: 8px 10px;
+  border: 1px solid #52544d;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.theme-toggle:hover { border-color: var(--orange); }
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.theme-toggle .theme-moon { display: none; }
+:root[data-theme="light"] .theme-toggle .theme-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .theme-moon { display: block; }
+.header-actions { display: flex; align-items: center; gap: 12px; }
+
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --paper: #20241e;
+  --panel: #f6f7f3;
+  --line: #d7dbd2;
+  --muted: #62695d;
+  --orange: #ba3d21;
+  color-scheme: light;
+}
+:root[data-theme="light"] :is(header, footer, .bag, #filters, .outline, .chip, .theme-toggle) {
+  border-color: var(--line);
+}
+:root[data-theme="light"] :is(input, select, textarea) {
+  background: #ffffff;
+  border-color: #adb6a5;
+  color: var(--paper);
+}
+:root[data-theme="light"] :is(input, textarea)::placeholder { color: #707769; opacity: 1; }
+:root[data-theme="light"] :is(dialog, .dialoghead, .modal-top) {
+  background: #ffffff;
+  border-color: var(--line);
+}
+:root[data-theme="light"] .dialoghead button { color: var(--paper); }
+:root[data-theme="light"] :is(.details div, .row) { border-color: var(--line); }
+:root[data-theme="light"] :is(.details small, .row small, .muted, .empty, .stat small, .subtle) {
+  color: var(--muted);
+}
+:root[data-theme="light"] label { color: #424a3b; }
+:root[data-theme="light"] .chip.active {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: #ffffff;
+}
+:root[data-theme="light"] :is(.primary, .cta) { background: #ff633e; color: #160f0b; }
+:root[data-theme="light"] :is(.primary, .cta):hover { background: #ff8665; }
+:root[data-theme="light"] :is(.ticker, .bag b) { background: #ff633e; color: #160f0b; }
+:root[data-theme="light"] .error { color: #b52e1b; }
+
+/* Keep editorial text readable over the photographs in either theme. */
+.hero { color: #f4f1eb; --orange: #ff5934; }
+.pages button:hover { background: #f4f1eb; color: #111111; }
+:root[data-theme="light"] :is(.banner, .login-wrap) { color: #f4f1ea; --orange: #ff633e; }
+:root[data-theme="light"] .login-copy label { color: #e8ecdf; }
+:root[data-theme="light"] .login-copy input { background: #fffffff2; color: var(--paper); }
+
+/* Administration surfaces and status colors. */
+:root[data-theme="light"] :is(.sidebar, .dropthumb) { background: #f6f7f3; }
+:root[data-theme="light"] :is(.menu-label, .store-link, .sidebar nav button) { color: var(--muted); }
+:root[data-theme="light"] .sidebar nav button:hover { background: #e9ede4; }
+:root[data-theme="light"] .sidebar nav button.active { background: #fce9e0; color: #a3331a; }
+:root[data-theme="light"] :is(.secondary, .iconbtn, .info) {
+  background: #eef1e9;
+  border-color: #adb6a5;
+}
+:root[data-theme="light"] .textbtn { color: #a3331a; }
+:root[data-theme="light"] .danger { color: #a52d24; border-color: #c38277; }
+:root[data-theme="light"] .badge { background: #e7ebe2; color: #46523e; }
+:root[data-theme="light"] .badge.green { background: #e3f0df; color: #31622b; }
+:root[data-theme="light"] .badge.orange { background: #ffeadc; color: #8c3b18; }
+:root[data-theme="light"] .badge.blue { background: #e1edf5; color: #275b7c; }
+:root[data-theme="light"] .badge.red { background: #fae5e3; color: #963b39; }
+:root[data-theme="light"] :is(#feedback, .formerror):not(:empty) {
+  background: #fff0df;
+  color: #823a1e;
+  border-color: #d7ac8d;
+}
+
+@media (max-width: 720px) {
+  .theme-toggle [data-theme-label] { display: none; }
+  .theme-toggle { width: 36px; padding: 8px; }
+}
+@media (max-width: 650px) {
+  .header-actions .view-store { display: none; }
+}
+@media (max-width: 520px) {
+  header nav a { display: none; }
+}
+@media (max-width: 380px) {
+  header nav button { padding-inline: 4px; font-size: 11px; }
+  .tools { gap: 3px; }
+  .theme-toggle { width: 32px; min-height: 32px; padding: 6px; }
+}
